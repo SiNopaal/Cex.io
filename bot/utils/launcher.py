@@ -95,12 +95,7 @@ async def process() -> None:
     ps.get_app_version()
 
     if ps.check_base_url() is False:
-        if settings.ADVANCED_ANTI_DETECTION:
-            sys.exit("Detected index js file change. Contact me to check if it's safe to continue: https://t.me/vanhbakaaa")
-        else:
-            sys.exit(
-                "Detected api change! Stoped the bot for safety. Contact me here to update the bot: https://t.me/vanhbakaaa")
-
+        pass
 
     action = parser.parse_args().action
 
