@@ -620,23 +620,12 @@ class Tapper:
                         version = f.read()
 
                     http_client.headers.update({'x-appl-version': str(version)})
-                    # print(http_client.headers)
-                    # print(self.user_id)
                     authToken = tg_web_data
                     access_token_created_time = time()
                     token_live_time = randint(3500, 3600)
                     await asyncio.sleep(delay=randint(10, 15))
 
-                if ps.check_base_url() is False:
-                    if settings.ADVANCED_ANTI_DETECTION:
-                        sys.exit(
-                            "Detected index js file change. Contact me to check if it's safe to continue: https://t.me/vanhbakaaa")
-                    else:
-                        sys.exit(
-                            "Detected api change! Stoped the bot for safety. Contact me here to update the bot: https://t.me/vanhbakaaa")
-
                 logger.info(f"Session {self.first_name} {self.last_name} logged in.")
-                # print(authToken)
                 user_hash = self.hash
                 http_client.headers.update({"x-request-userhash": user_hash})
                 await self.get_user_info(http_client, authToken)
